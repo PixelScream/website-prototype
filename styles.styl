@@ -1,0 +1,151 @@
+$width = 800px
+$grey = background-color rgba(125, 125, 125, 0.2)
+$normalSpeed = 1s
+$fastSpeed = 0.3s
+
+transition()
+	 -webkit-transition arguments
+    transition arguments
+
+column-count()
+	-webkit-column-count arguments
+	-moz-column-count arguments
+	column-count arguments
+
+
+
+body
+	margin 0
+	padding 0
+	font 400 16px/1.5 'Open Sans', sans-serif
+	box-sizing: border-box;
+	color #141414
+
+#hero-wrapper
+	width 100%
+	min-height 300px
+	background-color #242424
+	transition height $normalSpeed ease-in
+
+.hero-image
+	width 50%
+	position relative
+	display block
+	height 100%
+	float left
+	overflow: hidden;
+	transition background-size $normalSpeed ease-in-out
+
+#hero1
+	background: url("img/training_desaturated.jpg") no-repeat;
+	&.over
+		background: url("img/training.jpg") no-repeat;
+
+#hero2
+	background: url("img/marketing_desaturated.jpg") no-repeat;
+	&.over
+		background: url("img/marketing.jpg") no-repeat;
+
+#hero2, #hero1
+	background-size auto 110%
+	background-position center
+	&.over
+		background-size auto 100%
+		background-position center
+
+
+
+.hero-link
+	margin 60% 0 0 40%
+	width 30%
+	height 20%
+	background-color rgba(0,10,20,0.4)
+	border 2px solid white
+	a 
+		color white
+		text-decoration none
+		transition opacity $fastSpeed
+		text-align center
+		vertical-align middle
+		text-size 24px
+		&:hover
+			opacity 0.5
+		&:before
+			content ""
+			height 35%
+			width 100%
+			display block
+			pointer-events: none;
+
+#content
+	max-height 0
+	overflow hidden
+	//transition $normalSpeed ease-in
+	opacity 0
+
+#content.filled
+	max-height 20000px
+	margin 40px auto
+	opacity 1
+
+#footer
+	padding 40px
+	background-color #242424
+	color white
+	font-size 12px
+	h1
+		font 600 20px/0.8 'Open Sans', sans-serif
+
+.three-col
+	-webkit-column-count 3
+	-moz-column-count 3
+	column-count 3
+
+.fullpage
+	width 100%
+	max-width $width
+	height auto
+	display block
+	margin auto
+
+// Nav
+#nav
+	width 100%
+	height 80px
+	position fixed
+	z-index 10
+	.down
+		background-color white
+
+
+#menu-btn 
+	position fixed
+	right 20px
+	top 20px
+	height: 35px;
+	font-size: 1em;
+	clear: none;
+	width: 66px;
+	border-radius: 9px;
+	z-index: 999
+	&:hover
+		box-shadow: inset 0 2px  3px#222;
+		border-color #222
+
+input[type=button] 
+	background-color: #fff;
+	border: 1px solid #9daca9;
+	border-radius: 4px;
+	font: inherit;
+	letter-spacing: inherit;
+	text-indent: inherit;
+	color: inherit;
+
+#logo
+	z-index 10
+	position fixed
+	background url("img/logo.svg") / 100% 100% no-repeat
+	float: left;
+	height: 73px;
+	margin: 150px 0 0 6.13307%;
+	width: 6.603081%;
