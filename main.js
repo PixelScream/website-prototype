@@ -1,7 +1,7 @@
 console.log(document.getElementById("content"));
 
 var heroWrapper = document.getElementById("hero-wrapper");
-heroWrapper.style.height = window.innerHeight + "px";
+heroWrapper.style.height = (window.innerHeight - 20) + "px";
 
 var slowSpeed = 3;
 var normalSpeed = 1;
@@ -58,3 +58,12 @@ for (var i = heroLinks.length - 1; i >= 0; i--) {
 		this.parentNode.classList.remove("over");
 	}
 };
+
+
+var vid = document.getElementById("bgvid");
+vid.muted = true;
+
+document.onmousemove = function () {
+	console.log("mouse move , " + window.innerWidth + " , " + event.clientX + " , " + vid.duration + " | " + (event.clientX / window.innerWidth) + " = " + (vid.duration * (event.clientX / window.innerWidth)));
+	vid.currentTime = vid.duration * (event.clientX / window.innerWidth);
+}

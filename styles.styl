@@ -12,8 +12,13 @@ column-count()
 	-moz-column-count arguments
 	column-count arguments
 
+transform()
+    -ms-transform arguments
+    -webkit-transform arguments
+    transform arguments
 
-
+html 
+	overflow-x hidden
 body
 	margin 0
 	padding 0
@@ -26,6 +31,7 @@ body
 	min-height 300px
 	background-color #242424
 	transition height $normalSpeed ease-in
+	overflow hidden
 
 .hero-image
 	width 50%
@@ -90,6 +96,7 @@ body
 
 #footer
 	padding 40px
+	padding-top 60px
 	background-color #242424
 	color white
 	font-size 12px
@@ -149,3 +156,14 @@ input[type=button]
 	height: 73px;
 	margin: 150px 0 0 6.13307%;
 	width: 6.603081%;
+
+video
+	position relative
+	top 50%
+	left 50%
+	transform translate(-50%, -50%)
+	min-width 100%
+	min-height 100%
+	width auto
+	height auto
+

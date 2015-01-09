@@ -16,16 +16,9 @@
     <input id="menu-btn" type="button" onclick="javascript:MenuToggle()" value="menu">
 
     <div id="hero-wrapper">
-      <div id="hero1" class="hero-image">
-        <div class="hero-link">
-          <a href="javascript:LoadContent(1)"><p>Training</p></a>
-        </div>
-      </div>
-      <div id="hero2" class="hero-image">
-          <div class="hero-link">
-            <a href="javascript:LoadContent(2)"><p>Marketing</p></a>
-          </div>
-      </div>
+      <video id="bgvid" loop>
+        <source src="vid/web.MP4" type="video/mp4" />
+      </video>
     </div>
 
     <div id="content" class="fullpage">
@@ -71,8 +64,9 @@
       </div>
     </div>
 
-<iframe class="vimeo player" id="vimeo1" src="//player.vimeo.com/video/101372750?api=1&loop=1&portrait=0&controls=0&showinfo=0&autohide=1&rel=0&wmode=transparent&output=embed&player_id=vimeo1" width="100%" height="100%" style="width: 1903px; height: 1071px; left: 0px;"></iframe>
 
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.2/TweenLite.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.2/plugins/CSSPlugin.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/easing/EasePack.min.js"></script>
