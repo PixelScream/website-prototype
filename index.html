@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
 
-  <body>
+  <body onload="PreloadImages();">
   <div id="nav-wrapper">
     <div id="nav">
        <div id="logo"></div>
@@ -16,9 +16,8 @@
     <input id="menu-btn" type="button" onclick="javascript:MenuToggle()" value="menu">
 
     <div id="hero-wrapper">
-      <video id="bgvid" loop>
-        <source src="vid/web.MP4" type="video/mp4" />
-      </video>
+      <img src="vid/rv_logo5.jpg" id="hero-slider">
+    </div>
     </div>
 
     <div id="content" class="fullpage">

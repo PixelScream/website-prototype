@@ -60,10 +60,30 @@ for (var i = heroLinks.length - 1; i >= 0; i--) {
 };
 
 
+/*
 var vid = document.getElementById("bgvid");
 vid.muted = true;
 
 document.onmousemove = function () {
 	console.log("mouse move , " + window.innerWidth + " , " + event.clientX + " , " + vid.duration + " | " + (event.clientX / window.innerWidth) + " = " + (vid.duration * (event.clientX / window.innerWidth)));
 	vid.currentTime = vid.duration * (event.clientX / window.innerWidth);
+}
+*/
+
+var hero = document.getElementById("hero-slider");
+var count = 11;
+var imageList = [];
+
+function PreloadImages(){
+	for (var i = count - 1; i >= 0; i--) {
+		var img = "vid/rv_logo" + i + ".jpg"
+		imageList.push(img);
+		new Image().src = img;
+	}
+}
+
+document.onmousemove = function () {
+	//console.log("mouse move , " + window.innerWidth + " , " + event.clientX + " , " + vid.duration + " | " + (event.clientX / window.innerWidth) + " = " + (vid.duration * (event.clientX / window.innerWidth)));
+	var frame = Math.floor( count * (event.clientX / window.innerWidth));
+	hero.src = "vid/rv_logo" + frame + ".jpg";
 }
