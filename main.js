@@ -75,11 +75,44 @@ function PreloadImages(){
 	}
 }
 
+var links = document.getElementsByClassName("hero-link");
+
+console.log(links);
+
 document.onmousemove = function () {
 	//console.log("mouse move , " + window.innerWidth + " , " + event.clientX + " , " + vid.duration + " | " + (event.clientX / window.innerWidth) + " = " + (vid.duration * (event.clientX / window.innerWidth)));
 	var width = window.innerWidth;
-	var mouseHor = ((event.clientX - (0.25 * width) / (window.innerWidth - (0.25))));
-	var mouseHor = event.clientX / window.innerWidth
+	var quaterWidth = width * 0.25;
+
+	var mouseHor = event.clientX / window.innerWidth;
+	console.log(mouseHor);
+	mouseHor = (mouseHor - 0.25) * 2;
+	console.log(mouseHor);
+	if (mouseHor < 0) {
+		mouseHor = 0;
+	} else if (mouseHor > 1) {
+		mouseHor = 1;
+	}
+	
 	var frame = Math.floor( count * mouseHor);
+	/*
+	if (frame < 0) {
+		frame = 0;
+	} else if (frame > count) {
+		frame = count;
+	}
+	*/
 	hero.src = "vid/A_rv_logo" + frame + ".jpg";
+
+	if (event.clientX < width * 0.45) {
+		links[1].style.maxWidth = "0";
+		links[2].style.maxWidth = "0";
+	} else if (event.clientX > width * 0.65){
+		links[1].style.maxWidth = "0";
+		links[0].style.maxWidth = "0";
+	} else {
+		links[0].style.maxWidth = "";
+		links[1].style.maxWidth = "";
+		links[2].style.maxWidth = "";
+	}
 }

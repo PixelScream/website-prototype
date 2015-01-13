@@ -30,6 +30,7 @@ body {
 body a {
 #fff
   text-decoration: none;
+  font-family: 'Open Sans';
 }
 .dark {
   color: #fff;
@@ -346,6 +347,16 @@ video,
 }
 #hero-text a:hover {
   color: #008695;
+}
+.hero-link {
+  font-family: 'Open sans';
+  overflow: hidden;
+  -webkit-transition: max-width 1s;
+  display: inline-block;
+  max-width: 1000px;
+}
+.hero-link:hover {
+  max-width: 0;
 }
 #slide-wrapper {
   height: 100%;

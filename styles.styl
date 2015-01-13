@@ -49,6 +49,7 @@ body
 	a
 		white
 		text-decoration none
+		font-family 'Open Sans'
 
 .dark
 	color white
@@ -338,6 +339,15 @@ video, #hero-slider
 		text-decoration none
 		&:hover
 			color $accent
+.hero-link
+	font-family 'Open sans'
+	overflow hidden
+	transition max-width $normalSpeed
+	display inline-block
+	max-width 1000px
+	&:hover
+		max-width 0
+
 #slide-wrapper
 	height 100%
 	width 100%
