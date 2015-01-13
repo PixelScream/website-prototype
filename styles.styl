@@ -1,7 +1,18 @@
 $width = 800px
-$grey = background-color rgba(125, 125, 125, 0.2)
+$grey = rgba(125, 125, 125, 0.2)
 $normalSpeed = 1s
 $fastSpeed = 0.3s
+
+// color pallete
+$primaryDark = #e56e18
+$primary = #fe7d21
+$primaryLight = #fed7bb
+$accent = #008695
+$icon = #fff
+$textPrimary = #202020
+$textSecondary = #717171
+$divider = #b5b5b5
+$page = #EBEBEB
 
 transition()
 	 -webkit-transition arguments
@@ -15,16 +26,32 @@ column-count()
 transform()
     -ms-transform arguments
     -webkit-transform arguments
+    -moz-transform arguments
+	-ms-transform arguments
+	-o-transform arguments
     transform arguments
+
+box-shaodw()
+	box-shadow arguments
+    -moz-box-shadow arguments
+    -webkit-box-shadow arguments
 
 html 
 	overflow-x hidden
+
 body
 	margin 0
 	padding 0
 	font 400 16px/1.5 'Open Sans', sans-serif
 	box-sizing: border-box;
-	color #141414
+	color $textPrimary
+	background-color $page
+	a
+		white
+		text-decoration none
+
+.dark
+	color white
 
 #hero-wrapper
 	width 100%
@@ -33,67 +60,89 @@ body
 	transition height $normalSpeed ease-in
 	overflow hidden
 
-.hero-image
-	width 50%
-	position relative
-	display block
-	height 100%
-	float left
-	overflow: hidden;
-	transition background-size $normalSpeed ease-in-out
-
-#hero1
-	background: url("img/training_desaturated.jpg") no-repeat;
-	&.over
-		background: url("img/training.jpg") no-repeat;
-
-#hero2
-	background: url("img/marketing_desaturated.jpg") no-repeat;
-	&.over
-		background: url("img/marketing.jpg") no-repeat;
-
-#hero2, #hero1
-	background-size auto 110%
-	background-position center
-	&.over
-		background-size auto 100%
-		background-position center
-
-
-
-.hero-link
-	margin 60% 0 0 40%
-	width 30%
-	height 20%
-	background-color rgba(0,10,20,0.4)
-	border 2px solid white
-	a 
-		color white
-		text-decoration none
-		transition opacity $fastSpeed
-		text-align center
-		vertical-align middle
-		text-size 24px
-		&:hover
-			opacity 0.5
-		&:before
-			content ""
-			height 35%
-			width 100%
-			display block
-			pointer-events: none;
-
-#content
+#content-wrapper
 	max-height 0
 	overflow hidden
 	//transition $normalSpeed ease-in
 	opacity 0
-
-#content.filled
+#content-wrapper.filled
 	max-height 20000px
 	margin 40px auto
 	opacity 1
 
+.content
+	box-shadow 0 3px 10px rgba(0,0,0,0.05)
+	display block
+	background-color $icon
+	padding-bottom 15px
+	h1
+		padding 50px 50px 0
+	p
+		padding 5px 50px 15px
+	img
+		margin 20px 100px
+		max-width calc(100% - 200px)
+		box-shadow 0 3px 10px rgba(0,0,0,0.3)
+	a
+		font-weight 600
+		color $accent
+
+.header 
+	background rgb(254, 125, 33)
+	box-shadow rgba(0, 0, 0, 0.2) 0px 9px 18px 0px
+	float left
+	padding 0 0 10px
+	position relative
+	width 100%
+	margin 0 0 50px 0
+	color $icon
+	p
+		font-size 14px
+		margin 0
+
+#other-studies
+	margin-top 30px
+	display block
+	height 100%
+	overflow hidden
+
+
+.ext-study 
+	box-shadow 0 3px 10px rgba(0,0,0,0.05)
+	background-color white
+	@media (min-width: 600px)
+		width 250px
+		margin-right 25px
+		font-size 14px
+	height 100%
+	float left
+	display block
+	h1
+		margin 40px 30px 0
+		transition margin $fastSpeed
+	p
+		margin 0 30px 15px
+	a
+		font-weight 600
+		color $accent
+		text-decoration none
+		&:hover
+			text-decoration underline
+	&:last-child
+		margin-right 0
+	img
+		max-width 100%
+		margin 0 0 -40px
+		transition margin $fastSpeed
+	&:hover
+		h1
+			margin-top 10px
+		img
+			margin 0 0 -10px
+
+#call-to-action
+	display block
+	margin-top 100px
 #footer
 	padding 40px
 	padding-top 60px
@@ -104,9 +153,10 @@ body
 		font 600 20px/0.8 'Open Sans', sans-serif
 
 .three-col
-	-webkit-column-count 3
-	-moz-column-count 3
-	column-count 3
+	@media (min-width: $width)
+		-webkit-column-count 3
+		-moz-column-count 3
+		column-count 3
 
 .fullpage
 	width 100%
@@ -116,15 +166,74 @@ body
 	margin auto
 
 // Nav
-#nav
+#nav-wrapper
+	z-index 900
 	width 100%
 	height 80px
 	position fixed
 	z-index 10
-	.down
-		background-color white
+	background-color white
+	box-shadow 0 3px 5px rgba(0,0,0,0.1)
+	visibility hidden
+	opacity 0
+	transition opacity $fastSpeed transform $fastSpeed
+	animation  1.2s
+	transform-origin: 50% 100%;
+	transform: rotateX(180deg);
+	display: inline-block;
+	&.down
+		visibility visible
+		opacity 1
+		transform: rotateX(0deg);
+
+#nav
+	height 100%
+	max-width $width
+	margin auto
+	position relative
+
+#nav-logo
+	float right
+	width 100px
+	margin 20px 50px 0 0
+	position relative
+
+#top-menu
+	float left
+	padding 10px 0 0 40px
+	margin 0
+	list-style none
+	a
+		color $textPrimary
+		text-decoration none
+		font-weight 600
+		&:hover
+			border-bottom 1px solid $textPrimary
+	li
+		float left
+		padding 30px 10px
+
+#menu-btn
+	z-index 999
+	position fixed
+	width auto
+	height auto
+	border 1px solid $textPrimary
+	padding 10px 15px
+	top 20px
+	left 20px
+	color $textPrimary
+	background-color $icon
+	text-decoration none
+	border-radius 10px
+	transition $fastSpeed
+	&:hover
+		color $icon
+		background-color $textPrimary
+		border 1px solid $icon
 
 
+/*
 #menu-btn 
 	position fixed
 	right 20px
@@ -138,6 +247,7 @@ body
 	&:hover
 		box-shadow: inset 0 2px  3px#222;
 		border-color #222
+*/
 
 input[type=button] 
 	background-color: #fff;
@@ -149,13 +259,14 @@ input[type=button]
 	color: inherit;
 
 #logo
-	z-index 10
-	position fixed
-	background url("img/logo.svg") / 100% 100% no-repeat
-	float: left;
-	height: 73px;
-	margin: 150px 0 0 6.13307%;
-	width: 6.603081%;
+	width 90%
+	max-width 400px
+	position relative
+	top 40%
+	left 50%
+	transform translate(-55%, -50%)
+	display block
+
 
 video, #hero-slider
 	position relative
@@ -166,4 +277,91 @@ video, #hero-slider
 	min-height 100%
 	width auto
 	height auto
+	display block
+	visibility visible
+	opacity 1
 
+#vid-wrapper
+	margin-top -300px
+
+#vid-controller-wrapper
+	position absolute
+	top 0
+	left 0
+	width 100%
+	height 60%
+	background-color rgba(0,0,0,0.5)
+	opacity 0.2
+	transition opacity $slowSpeed ease-out
+	z-index 101
+	display block
+	div
+		transition opacity $slowSpeed ease-out, top $slowSpeed ease-out
+		opacity 0
+		top 70%
+	&:hover
+		opacity 1
+		div
+			opacity 1
+			top 80%
+#vid-controller
+	height auto
+	width 340px
+	position relative
+	margin auto
+	display block
+	font-size 40px
+	letter-spacing 20px
+	a
+		color white
+		text-decoration none
+		&:hover
+			opacity 0.6
+
+.invisible
+	opacity 0
+	visibility hidden
+
+#hero-text
+	position absolute
+	left 0
+	right 0
+	margin auto
+	bottom 15%
+	color $primary
+	z-index 999
+	text-align center
+	font-size 24px
+	text-shadow: 0 0 2px rgba(20,20,20,0.8);
+	a
+		color $primary
+		text-decoration none
+		&:hover
+			color $accent
+#slide-wrapper
+	height 100%
+	width 100%
+.chrome-sticky
+	-webkit-transform translateZ(0)
+	
+
+.fa-arrow-right-after:after {
+  content: "\f061";
+}
+
+#description-icons
+	height 100%
+	width 70px
+	font-size 50px
+	position absolute
+	margin-left 0
+	margin-top 50px
+	text-align center
+
+
+#description
+	background-color transparent
+	margin-bottom 50px
+	margin-top -20px
+	p, h1
+		padding-left 100px
